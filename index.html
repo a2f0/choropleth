@@ -89,13 +89,16 @@
                 }
 
                 info.update(layer.feature.properties);
+                layer.openPopup();
             }
 
             var geojson;
 
             function resetHighlight(e) {
+                var layer = e.target;
                 geojson.resetStyle(e.target);
                 info.update();
+                layer.closePopup();
             }
 
             function zoomToFeature(e) {
@@ -103,11 +106,13 @@
             }
 
             function onEachFeature(feature, layer) {
+                
                 layer.on({
                     mouseover: highlightFeature,
                     mouseout: resetHighlight,
                     click: zoomToFeature
                 });
+                layer.bindPopup(feature.properties.name);
             }
 
             fetch('http://localhost:5000/states.json')
