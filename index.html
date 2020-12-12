@@ -6,13 +6,13 @@
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css">
         <style>
             html, body {
-                height: 100vh;
-                height: 100vw;
+                height: 100%;
+                height: 100%;
                 margin: 0px;
             }
             #map {
-                height: 100vh;
-                height: 100vw;
+                height: 100%;
+                height: 100%;
             }
         </style>
 
@@ -159,7 +159,7 @@
             }
 
             function zoomToFeature(e) {
-                map.fitBounds(e.target.getBounds());
+                //map.fitBounds(e.target.getBounds());
             }
 
             function onEachFeature(feature, layer) {
@@ -169,7 +169,7 @@
                     mouseout: resetHighlight,
                     click: zoomToFeature
                 });
-                layer.bindPopup(feature.properties.name);
+                //layer.bindPopup(feature.properties.name);
             }
 
             if ( window.location.hostname === '') {
